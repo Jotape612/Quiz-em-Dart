@@ -30,12 +30,20 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = questions[questionIndex].answer;
 
-    setState (() {
+    setState(() {
       if (userAnswer == correctAnswer) {
         score++;
       }
       if (questionIndex < questions.length - 1) {
         questionIndex++;
+      }
+
+      if (questionIndex == questions.length 
+      ) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => TelaResultado(score, questionIndex,resetQuiz)));
       }
     });
   }
@@ -100,7 +108,8 @@ class _QuizPageState extends State<QuizPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => TelaResultado(score, questionIndex)),
+                
+                    builder: (context) => TelaResultado(score, questionIndex, resetQuiz)),
               );
             },
             child: Text('Tela de Resultado'),
