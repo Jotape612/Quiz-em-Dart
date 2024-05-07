@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste_01/tela_destino.dart';
 
 void main() => runApp(QuizApp());
 
@@ -29,7 +30,7 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userAnswer) {
     bool correctAnswer = questions[questionIndex].answer;
 
-    setState(() {
+    setState (() {
       if (userAnswer == correctAnswer) {
         score++;
       }
@@ -58,7 +59,7 @@ class _QuizPageState extends State<QuizPage> {
           Expanded(
             flex: 5,
             child: Image.network(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_rzz4EywndR5VMjJj5zlD50xQ924byYl3nw&s',
+              'https://i.pinimg.com/236x/a8/85/48/a88548056fe6058cf6be96c07cc89034.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -95,8 +96,14 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
           ElevatedButton(
-            onPressed: resetQuiz,
-            child: Text('Recomeçar'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => TelaResultado(score, questionIndex)),
+              );
+            },
+            child: Text('Tela de Resultado'),
           ),
         ],
       ),
