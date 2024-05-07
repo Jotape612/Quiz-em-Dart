@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class TelaResultado extends StatelessWidget {
   final int pontuacao;
   final int totalPerguntas;
+  final Function resetQuiz;
 
-  TelaResultado(this.pontuacao, this.totalPerguntas);
+  TelaResultado(this.pontuacao, this.totalPerguntas, this.resetQuiz);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class TelaResultado extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
+                    resetQuiz();
                     Navigator.pop(context);
                   },
                   child: Text("Recomeçar"))
