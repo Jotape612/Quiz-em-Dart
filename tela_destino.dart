@@ -15,6 +15,13 @@ class TelaResultado extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Expanded(
+                flex: 5,
+                child: Image.network(
+                  'https://static.quizur.com/i/b/5b8f165809d503.05121932download%20(2).jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
               Text(
                 'Voce completou o Quiz!',
                 style: TextStyle(fontSize: 24),

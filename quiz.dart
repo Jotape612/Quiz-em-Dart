@@ -1,16 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste_01/tela_destino.dart';
-
-void main() => runApp(QuizApp());
-
-class QuizApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: QuizPage(),
-    );
-  }
-}
+import 'tela_destino.dart';
 
 class QuizPage extends StatefulWidget {
   @override
@@ -59,7 +48,7 @@ class _QuizPageState extends State<QuizPage> {
           Expanded(
             flex: 5,
             child: Image.network(
-              'https://i.pinimg.com/236x/a8/85/48/a88548056fe6058cf6be96c07cc89034.jpg',
+              'https://static.quizur.com/i/b/5b8f165809d503.05121932download%20(2).jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -100,7 +89,8 @@ class _QuizPageState extends State<QuizPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => TelaResultado(score, questionIndex)),
+                    builder: (context) =>
+                        TelaResultado(score, questionIndex, resetQuiz)),
               );
             },
             child: Text('Tela de Resultado'),
